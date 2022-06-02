@@ -1,0 +1,13 @@
+<input type="button" value="gotify" onclick="send_message('gotify');"/>
+<input type="button" value="app_thermostat_demo" onclick="send_message('app_thermostat_demo');"/>
+<script>
+        var origin, source;
+        window.addEventListener("message", (event) => {
+                origin = event.origin;
+                source = event.source;
+                source.postMessage("seva-init", origin);
+        });
+        function send_message(message) {
+                source.postMessage(message, origin);
+        }
+</script>
